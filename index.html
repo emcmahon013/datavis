@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Resume Diagram</title>
+<title>Sankey Diagram</title>
 <style>
 
 @import url(http://bost.ocks.org/mike/style.css?20120521);
@@ -32,13 +32,13 @@
 
 </style>
 <body>
-
-<h1>Resume to Date</h1>
-
+ 
+<h1>Sankey Diagrams</h1>
+ 
 <p id="chart">
-
+ 
 <script src="http://d3js.org/d3.v2.min.js?2.9.1"></script>
-<script src="https://raw.github.com/kunalb/d3-plugins/sankey/sankey/sankey.js"></script>
+<script src="http://bost.ocks.org/mike/sankey/sankey.js"></script>
 <script>
 
 var margin = {top: 1, right: 1, bottom: 6, left: 1},
@@ -46,7 +46,7 @@ var margin = {top: 1, right: 1, bottom: 6, left: 1},
     height = 500 - margin.top - margin.bottom;
 
 var formatNumber = d3.format(",.0f"),
-    format = function(d) { return formatNumber(d); },
+    format = function(d) { return formatNumber(d) + " TWh"; },
     color = d3.scale.category20();
 
 var svg = d3.select("#chart").append("svg")
@@ -62,15 +62,15 @@ var sankey = d3.sankey()
 
 var path = sankey.link();
 
-d3.json("https://github.com/emcmahon013/datavis/resume.json", function(resume) {
+d3.json("https://gist.githubusercontent.com/kunalb/4647670/raw/880345a16dbae39753682bb659249404a3820146/energy.json", function(energy) {
 
   sankey
-      .nodes(resume.nodes)
-      .links(resume.links)
+      .nodes(energy.nodes)
+      .links(energy.links)
       .layout(32);
 
   var link = svg.append("g").selectAll(".link")
-      .data(resume.links)
+      .data(energy.links)
     .enter().append("path")
       .attr("class", "link")
       .attr("d", path)
@@ -81,7 +81,7 @@ d3.json("https://github.com/emcmahon013/datavis/resume.json", function(resume) {
       .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
 
   var node = svg.append("g").selectAll(".node")
-      .data(resume.nodes)
+      .data(energy.nodes)
     .enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
