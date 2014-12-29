@@ -38,7 +38,7 @@
 <p id="chart">
 
 <script src="http://d3js.org/d3.v2.min.js?2.9.1"></script>
-<script src="https://github.com/emcmahon013/d3-plugins/sankey/sankey/sankey.js"></script>
+<script src="https://raw.github.com/kunalb/d3-plugins/sankey/sankey/sankey.js"></script>
 <script>
 
 var margin = {top: 1, right: 1, bottom: 6, left: 1},
@@ -62,7 +62,7 @@ var sankey = d3.sankey()
 
 var path = sankey.link();
 
-d3.json("resume.json", function(resume) {
+d3.json("https://github.com/emcmahon013/datavis/resume.json", function(resume) {
 
   sankey
       .nodes(resume.nodes)
