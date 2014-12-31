@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Sankey Diagram</title>
+<title>Resume Diagram</title>
 <style>
 
 @import url(http://bost.ocks.org/mike/style.css?20120521);
@@ -33,7 +33,7 @@
 </style>
 <body>
  
-<h1>Sankey Diagrams</h1>
+<h2>Resume in Vis</h2>
  
 <p id="chart">
  
@@ -62,7 +62,7 @@ var sankey = d3.sankey()
 
 var path = sankey.link();
 
-d3.json("https://gist.githubusercontent.com/kunalb/4647670/raw/880345a16dbae39753682bb659249404a3820146/energy.json", function(energy) {
+d3.json("https://gist.githubusercontent.com/emcmahon013/9950ddcd372cf88e0c8b/raw/2ecd585562aa9e1d3c8f46ab78e7cec746b95062/resume.json", function(energy) {
 
   sankey
       .nodes(energy.nodes)
@@ -115,5 +115,7 @@ d3.json("https://gist.githubusercontent.com/kunalb/4647670/raw/880345a16dbae3975
     link.attr("d", path);
   }
 });
-
 </script>
+
+
+<p>This chart illustrates my current resume in visual format.  </p>
