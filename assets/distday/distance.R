@@ -32,7 +32,7 @@ hist(dist$ln.dist)
 dist$date<-as.POSIXct(strptime(dist$date,"%m/%d/%y %H:%M"))
 dist$day<-cut(dist$date,"1 day")
 dist.day<-ddply(dist,.(day),summarize,dist=sum(dist))
-dist.day$day<-strftime(strptime(dist.day$day,"%Y-%m-%d %H:%M:%S"),"%Y-%m-%d")
+dist.day$day<-strftime(strptime(dist.day$day,"%Y-%m-%d %H:%M:%S"),"%Y-%M-%D")
 dist.day$ln.dist<-log(dist.day$dist)
 write.table(dist.day,file="/Users/erinmcmahon/mygit/datavis/distday.csv",sep=",",row.names=FALSE)
 
