@@ -49,10 +49,8 @@
 <h2>Resume Flow Chart</h2>
  
 <p id="chart">
-<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <script src="http://d3js.org/d3.v2.min.js?2.9.1"></script>
 <script src="/datavis/assets/sankey/sankey.js"></script>
-<script src="/datavis/assets/sankey/d3-timeline.js"></script>
 <script>
 
 
@@ -137,29 +135,6 @@ d3.json("/datavis/assets/sankey/resume.json", function(energy) {
 
 </script>
 </p>
-<script type="text/javascript">
-var yr = [
-{"year":"2007","start":0,"end":0.02},
-{"year":"2008","start":0.02,"end":0.14},
-{"year":"2009","start":0.14,"end":0.24},
-{"year":"2010","start":0.24,"end":0.35},
-{"year":"2011","start":0.35,"end":0.50},
-{"year":"2012","start":0.50,"end":0.63},
-{"year":"2013","start":0.63,"end":0.75},
-{"year":"2014","start":0.75,"end":0.95},
-{"year":"2015","start":0.95,"end":1},
-];
-
-function timelineRect() {
-        var chart = d3.timeline();
-        var svg = d3.select("#timeline1").append("svg").attr("width", width)
-          .datum(yr).call(chart);
-      }
-
-timelineRect();
-
-</script>
-<div id="timeline1"></div>
 
 <p>This chart aligns my skill sets with the various projects that I've completed.  It moves from my most general skills to examples of those skills throught my career and school projects.  
 
