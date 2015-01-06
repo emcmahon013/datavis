@@ -52,9 +52,9 @@
  
 <script src="http://d3js.org/d3.v2.min.js?2.9.1"></script>
 <script src="/datavis/assets/sankey/sankey.js"></script>
+<script src="/datavis/assets/sankey/d3-timeline.js"></script>
 <script>
 
-var chart=d3.timeline()
 
 var margin = {top: 1, right: 1, bottom: 6, left: 1},
     width = 900 - margin.left - margin.right,
@@ -143,10 +143,12 @@ var yr = [
 {"year":"2013","start":0.63,"end":0.75},
 {"year":"2014","start":0.75,"end":0.95},
 {"year":"2015","start":0.95,"end":1},
-]
+];
 
-var time.svg=d3.select(chart).append("svg")
-  .attr("height=500px")
+var chart=d3.timeline();
+
+var time.svg=d3.select(#timeline1).append("svg")
+  .attr("height",500px)
   .datum(yr)
   .call(chart);
 
