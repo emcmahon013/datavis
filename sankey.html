@@ -133,6 +133,11 @@ d3.json("/datavis/assets/sankey/resume.json", function(energy) {
 
 });
 
+
+
+</script>
+</p>
+<script type="text/javascript">
 var yr = [
 {"year":"2007","start":0,"end":0.02},
 {"year":"2008","start":0.02,"end":0.14},
@@ -145,15 +150,15 @@ var yr = [
 {"year":"2015","start":0.95,"end":1},
 ];
 
-var chart=d3.timeline();
+function timelineRect() {
+        var chart = d3.timeline();
+        var svg = d3.select("#timeline1").append("svg").attr("width", width)
+          .datum(yr).call(chart);
+      }
 
-var time.svg=d3.select("#timeline1").append("svg")
-  .attr("height",500px)
-  .datum(yr)
-  .call(chart);
+timelineRect();
 
 </script>
-</p>
 <div id="timeline1"></div>
 
 <p>This chart aligns my skill sets with the various projects that I've completed.  It moves from my most general skills to examples of those skills throught my career and school projects.  
