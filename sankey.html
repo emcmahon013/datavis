@@ -74,7 +74,7 @@ var sankey = d3.sankey()
 
 var path = sankey.link();
 
-d3.json("/gh-pages/assets/sankey/resume.json", function(energy) {
+d3.json("https://gist.githubusercontent.com/emcmahon013/9950ddcd372cf88e0c8b/raw/2ecd585562aa9e1d3c8f46ab78e7cec746b95062/resume.json", function(energy) {
 
   sankey
       .nodes(energy.nodes)
