@@ -36,7 +36,7 @@
 
     function timeline (gParent) {
       var g = gParent.append("g");
-      var gParentSize = gParent[0][0].getBoundingClientRect();
+      // var gParentSize = gParent[0][0].getBoundingClientRect();
 
       var gParentItem = d3.select(gParent[0][0]);
 
