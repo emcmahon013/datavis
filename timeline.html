@@ -152,7 +152,7 @@
 			.enter().append("rect")
 			.attr("class", function(d) {return "miniItem" + d.lane;})
 			.attr("y", function(d) {return x(d.end );})
-			.attr("x", function(d) {return y2(d.lane + .5) - 5;})
+			.attr("x", function(d) {return y2(d.lane + .5);})
 			.attr("height", function(d) {return x(d.end-d.start);})
 			.attr("width", 10);
 
