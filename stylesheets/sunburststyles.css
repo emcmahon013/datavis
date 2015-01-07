@@ -6,11 +6,12 @@ body {
   font-weight:300;
   width: 1000px;
   height: 700px;
-  margin-top:10px;
+  margin-top:50px;
+  margin-left: 50px;
 }
 
 #skillsmap .skills-wrapper{
-  margin-top:10px;
+  margin-top:20px;
   overflow:auto;
 }
 #skillmap .skills-sunburst{
