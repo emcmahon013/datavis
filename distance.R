@@ -1,4 +1,4 @@
-library('dplyr')
+library('plyr')
 dist<-read.table('/Users/erinmcmahon/mygit/datavis/assets/distday/openpaths_emcmahon013.csv',sep=',',header=TRUE)
 
 lagged<-function(x){
@@ -35,7 +35,8 @@ dist$day<-cut(dist$date,"1 day")
 dist.day<-ddply(dist,.(day),summarize,dist=sum(dist))
 dist.day$day<-strftime(strptime(dist.day$day,"%Y-%m-%d %H:%M:%S"),"%Y-%M-%D")
 dist.day$ln.dist<-log(dist.day$dist)
-write.table(dist.day,file="/Users/erinmcmahon/mygit/datavis/assets/distday/distdayd3.csv",sep=",",row.names=FALSE)
+colnames(dist.day)<-c('Date','Dist','Ln')
+write.table(dist.day,file="/Users/erinmcmahon/mygit/datavis/assets/distday/distday.csv",sep=",",row.names=FALSE)
 
 
 
