@@ -121,11 +121,11 @@ var sankey = d3.sankey()
 
 var m = [20, 15, 15, 120], //top right bottom left
     miniWidth = laneLength * 12 + 50,
-    mainWidth = w - miniWidth - 50;
+    mainWidth = width - miniWidth - 50;
 
 var y = d3.scale.linear()
         .domain([timeBegin, timeEnd])
-        .range([h, 0]);
+        .range([height, 0]);
 var x = d3.scale.linear()
         .domain([0, laneLength])
         .range([0, miniWidth]);
@@ -192,13 +192,13 @@ d3.json("/datavis/assets/sankey/resume.json", function(energy) {
 
 var chart = d3.select("body")
           .append("svg")
-          .attr("width", w + m[1] + m[3])
-          .attr("height", h + m[0] + m[2])
+          .attr("width", width + m[1] + m[3])
+          .attr("height", height + m[0] + m[2])
           .attr("class", "chart");
 
 var mini = chart.append("g")
           .attr("transform", "translate(" + m[0] + "," + (m[2]) + ")")
-          .attr("height", h - m[0]-m[2])
+          .attr("height", height - m[0]-m[2])
           .attr("width", miniWidth)
           .attr("class", "mini");
 
