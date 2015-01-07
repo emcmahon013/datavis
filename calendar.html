@@ -81,7 +81,7 @@ svg.selectAll(".month")
     .attr("class", "month")
     .attr("d", monthPath);
 
-d3.csv("https://gist.githubusercontent.com/emcmahon013/9950ddcd372cf88e0c8b/raw/004d66a936ff3f2cc5ec8415f16c40d90c0d7271/distday.csv", function(error, csv) {
+d3.csv("/datavis/assets/distday/distday.csv", function(error, csv) {
   var data = d3.nest()
     .key(function(d) { return d.Date; })
     .rollup(function(d) { return d[0].Dist; })
