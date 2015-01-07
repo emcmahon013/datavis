@@ -100,8 +100,8 @@
 <script>
 
 
-var margin = {top: 1, right: 50, bottom: 6, left: 1},
-    width = 1000 - margin.left - margin.right,
+var margin = {top: 1, right: 40, bottom: 6, left: 1},
+    width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var formatNumber = d3.format(",.0f"),
@@ -202,7 +202,7 @@ var mini = svg.append("g")
 //       .enter().append("rect")
 //       .attr("class", function(d) {return "miniItem" + d.lane;})
 //       .attr("y", function(d) {return y(d.end);})
-//       .attr("x", function(d) {return x(d.lane)+950;})
+//       .attr("x", function(d) {return x(d.lane)+920;})
 //       .attr("height", function(d) {return y(d.end-d.start);})
 //       .attr("width", 10);
 
@@ -212,7 +212,7 @@ mini.append("g").selectAll(".miniLabels")
       .enter().append("text")
       .text(function(d) {return d.id;})
       .attr("y", function(d) {return y((d.start+d.end)/2);})
-      .attr("x", function(d) {return x(d.lane)+950;})
+      .attr("x", function(d) {return x(d.lane)+920;})
       .attr("dx", ".5ex");
 
 </script>
