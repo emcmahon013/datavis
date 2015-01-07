@@ -217,7 +217,7 @@ mini.append("g").selectAll(".miniLabels")
       .enter().append("text")
       .text(function(d) {return d.id;})
       .attr("y", function(d) {return y((d.start+d.end)/2);})
-      .attr("x", function(d) {return x(d.lane);})
+      .attr("x", function(d) {return x(d.lane)+900;})
       .attr("dx", ".5ex");
 
 </script>
