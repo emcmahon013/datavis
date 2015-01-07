@@ -161,8 +161,8 @@
 			.data(items)
 			.enter().append("text")
 			.text(function(d) {return d.id;})
-			.attr("x", function(d) {return x(d.start);})
-			.attr("y", function(d) {return y2(d.lane + .5);})
+			.attr("y", function(d) {return x(d.start);})
+			.attr("x", function(d) {return y2(d.lane + .5);})
 			.attr("dx", ".5ex");
 
 		//brush
