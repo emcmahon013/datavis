@@ -196,7 +196,7 @@ var chart = d3.select("body")
           .attr("height", height + m[0] + m[2])
           .attr("class", "chart");
 
-var mini = chart.append("g")
+var mini = svg.append("g")
           .attr("transform", "translate(" + m[0] + "," + (m[2]) + ")")
           .attr("height", height - m[0]-m[2])
           .attr("width", miniWidth)
