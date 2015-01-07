@@ -78,6 +78,23 @@
 <h2>Resume Flow Chart</h2>
  
 <p id="chart">
+  <script type="text/javascript">
+    //data
+    var lanes = ["Year"],
+      laneLength = lanes.length,
+      items = [{"lane": 0, "id": "2007", "start": 0, "end": 3},
+          {"lane": 0, "id": "2008", "start": 3, "end": 14},
+          {"lane": 0, "id": "2009", "start": 14, "end": 23},
+          {"lane": 0, "id": "2010", "start": 23, "end": 35},
+          {"lane": 0, "id": "2011", "start": 35, "end": 50},
+          {"lane": 0, "id": "2012", "start": 50, "end": 63},
+          {"lane": 0, "id": "2013", "start": 63, "end": 75},
+          {"lane": 0, "id": "2014", "start": 75, "end": 95},
+          {"lane": 0, "id": "2015", "start": 95, "end": 100}]
+      timeBegin = 0,
+      timeEnd = 100;
+    </script>
+
 <script src="http://d3js.org/d3.v2.min.js?2.9.1"></script>
 <script src="/datavis/assets/sankey/sankey.js"></script>
 <script>
@@ -101,6 +118,19 @@ var sankey = d3.sankey()
     .nodeWidth(15)
     .nodePadding(10)
     .size([width, height]);
+
+var m = [20, 15, 15, 120], //top right bottom left
+    miniWidth = laneLength * 12 + 50,
+    mainWidth = w - miniWidth - 50;
+
+var y = d3.scale.linear()
+        .domain([timeBegin, timeEnd])
+        .range([h, 0]);
+var x = d3.scale.linear()
+        .domain([0, laneLength])
+        .range([0, miniWidth]);
+
+
 
 var path = sankey.link();
 
@@ -160,7 +190,35 @@ d3.json("/datavis/assets/sankey/resume.json", function(energy) {
 
 });
 
+var chart = d3.select("body")
+          .append("svg")
+          .attr("width", w + m[1] + m[3])
+          .attr("height", h + m[0] + m[2])
+          .attr("class", "chart");
 
+var mini = chart.append("g")
+          .attr("transform", "translate(" + m[0] + "," + (m[2]) + ")")
+          .attr("height", h - m[0]-m[2])
+          .attr("width", miniWidth)
+          .attr("class", "mini");
+
+mini.append("g").selectAll("miniItems")
+      .data(items)
+      .enter().append("rect")
+      .attr("class", function(d) {return "miniItem" + d.lane;})
+      .attr("y", function(d) {return y(d.end );})
+      .attr("x", function(d) {return x(d.lane + .5);})
+      .attr("height", function(d) {return y(d.end-d.start);})
+      .attr("width", 10);
+
+    //mini labels
+mini.append("g").selectAll(".miniLabels")
+      .data(items)
+      .enter().append("text")
+      .text(function(d) {return d.id;})
+      .attr("y", function(d) {return y((d.start+d.end)/2);})
+      .attr("x", function(d) {return x(d.lane);})
+      .attr("dx", ".5ex");
 
 </script>
 </p>
