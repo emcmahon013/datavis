@@ -1,4 +1,5 @@
-dist<-read.table('/Users/erinmcmahon/mygit/datavis/openpaths_emcmahon013.csv',sep=',',header=TRUE)
+library('plyr')
+dist<-read.table('/Users/erinmcmahon/mygit/datavis/assets/distday/openpaths_emcmahon013.csv',sep=',',header=TRUE)
 
 lagged<-function(x){
   n=length(x)
@@ -32,11 +33,12 @@ hist(dist$ln.dist)
 dist$date<-as.POSIXct(strptime(dist$date,"%m/%d/%y %H:%M"))
 dist$day<-cut(dist$date,"1 day")
 dist.day<-ddply(dist,.(day),summarize,dist=sum(dist))
-dist.day$day<-strftime(strptime(dist.day$day,"%Y-%m-%d %H:%M:%S"),"%Y-%M-%D")
+dist.day$day<-strftime(strptime(dist.day$day,"%Y-%m-%d %H:%M:%S"),"%Y-%m-%d")
 dist.day$ln.dist<-log(dist.day$dist)
-write.table(dist.day,file="/Users/erinmcmahon/mygit/datavis/distday.csv",sep=",",row.names=FALSE)
+colnames(dist.day)<-c('Date','Dist','Ln')
+write.table(dist.day,file="/Users/erinmcmahon/mygit/datavis/assets/distday/distday.csv",sep=",",row.names=FALSE)
 
 
 
-dist$hour<-cut(dist$date,"1 hour")
-dist.hour<-ddply(dist,(.hour),summarize,)
+#dist$hour<-cut(dist$date,"1 hour")
+#dist.hour<-ddply(dist,(.hour),summarize,)
