@@ -64,7 +64,7 @@
 			h = 960 - m[1] - m[3],
 			w = 500 - m[0] - m[2],
 			miniWidth = laneLength * 12 + 50,
-			mainWidth = w - miniWidth ;
+			mainWidth = w - miniWidth - 50;
 
 		//scales
 		var x = d3.scale.linear()
@@ -77,7 +77,7 @@
 				.range([0, mainWidth]);
 		var y2 = d3.scale.linear()
 				.domain([0, laneLength])
-				.range([0, miniWidth]);
+				.range([miniWidth,0]);
 
 		var chart = d3.select("body")
 					.append("svg")
