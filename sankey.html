@@ -202,14 +202,14 @@ var mini = svg.append("g")
           .attr("width", width)
           .attr("class", "mini");
 
-mini.append("g").selectAll("miniItems")
-      .data(items)
-      .enter().append("rect")
-      .attr("class", function(d) {return "miniItem" + d.lane;})
-      .attr("y", function(d) {return y(d.end);})
-      .attr("x", function(d) {return x(d.lane)+900;})
-      .attr("height", function(d) {return y(d.end-d.start);})
-      .attr("width", 10);
+// mini.append("g").selectAll("miniItems")
+//       .data(items)
+//       .enter().append("rect")
+//       .attr("class", function(d) {return "miniItem" + d.lane;})
+//       .attr("y", function(d) {return y(d.end);})
+//       .attr("x", function(d) {return x(d.lane)+900;})
+//       .attr("height", function(d) {return y(d.end-d.start);})
+//       .attr("width", 10);
 
     //mini labels
 mini.append("g").selectAll(".miniLabels")
