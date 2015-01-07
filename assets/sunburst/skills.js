@@ -191,8 +191,8 @@ var chart = function (d3) {
         chart.refreshChart = refreshChart;
         return chart;
     }(d3),
-    width = 580,
-    height = 580,
+    width = 480,
+    height = 480,
     rad = Math.min(width, height) / Math.PI - 25,
     q = k,
     r = {
