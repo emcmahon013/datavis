@@ -162,7 +162,7 @@
 			.enter().append("text")
 			.text(function(d) {return d.id;})
 			.attr("y", function(d) {return x(d.start);})
-			.attr("x", function(d) {return y2(d.lane + .5);})
+			.attr("x", function(d) {return y2(d.lane);})
 			.attr("dx", ".5ex");
 
 		//brush
