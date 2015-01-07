@@ -62,7 +62,7 @@
 <script type="text/javascript">
 		var m = [20, 15, 15, 120], //top right bottom left
 			h = 500 - m[1] - m[3],
-			w = 500 - m[0] - m[2],
+			w = 500,
 			miniWidth = laneLength * 12 + 50,
 			mainWidth = w - miniWidth - 50;
 
@@ -151,7 +151,7 @@
 			.data(items)
 			.enter().append("rect")
 			.attr("class", function(d) {return "miniItem" + d.lane;})
-			.attr("y", function(d) {return x(d.start);})
+			.attr("y", function(d) {return x(d.end );})
 			.attr("x", function(d) {return y2(d.lane + .5) - 5;})
 			.attr("height", function(d) {return x(d.end-d.start);})
 			.attr("width", 10);
