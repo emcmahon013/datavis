@@ -60,9 +60,9 @@
 		</script>
 
 <script type="text/javascript">
-		var m = [20, 15, 15, 120], //top right bottom left
+		var m = [20, 15, 15, 50], //top right bottom left
 			h = 700 - m[1] - m[3],
-			w = 500,
+			w = 250,
 			miniWidth = laneLength * 12 + 50,
 			mainWidth = w - miniWidth - 50;
 
@@ -70,11 +70,6 @@
 		var x = d3.scale.linear()
 				.domain([timeBegin, timeEnd])
 				.range([h, 0]);
-		var x1 = d3.scale.linear()
-				.range([0, w]);
-		var y1 = d3.scale.linear()
-				.domain([0, laneLength])
-				.range([0, mainWidth]);
 		var y2 = d3.scale.linear()
 				.domain([0, laneLength])
 				.range([0, miniWidth]);
@@ -89,7 +84,7 @@
 			.attr("id", "clip")
 			.append("rect")
 			.attr("height", h)
-			.attr("width", mainWidth);
+			.attr("width", w);
 
 		// var main = chart.append("g")
 		// 			.attr("transform", "translate(" + m[3] + "," + m[0] + ")")
@@ -152,7 +147,7 @@
 			.enter().append("rect")
 			.attr("class", function(d) {return "miniItem" + d.lane;})
 			.attr("y", function(d) {return x(d.end );})
-			.attr("x", function(d) {return y2(d.lane + .5);})
+			.attr("x", function(d) {return y(d.lane + .5);})
 			.attr("height", function(d) {return x(d.end-d.start);})
 			.attr("width", 10);
 
@@ -162,7 +157,7 @@
 			.enter().append("text")
 			.text(function(d) {return d.id;})
 			.attr("y", function(d) {return x((d.start+d.end)/2);})
-			.attr("x", function(d) {return y2(d.lane);})
+			.attr("x", function(d) {return y(d.lane);})
 			.attr("dx", ".5ex");
 
 		//brush
