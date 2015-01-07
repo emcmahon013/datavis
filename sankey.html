@@ -190,11 +190,6 @@ d3.json("/datavis/assets/sankey/resume.json", function(energy) {
 
 });
 
-var chart = d3.select("body")
-          .append("svg")
-          .attr("width", width + m[1] + m[3])
-          .attr("height", height + m[0] + m[2])
-          .attr("class", "chart");
 
 var mini = svg.append("g")
           .attr("transform", "translate(" + 0 + "," + 0 + ")")
