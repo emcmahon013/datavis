@@ -160,7 +160,6 @@
 		mini.append("g").selectAll(".miniLabels")
 			.data(items)
 			.enter().append("text")
-			.attr("transform","rotate(90)")
 			.text(function(d) {return d.id;})
 			.attr("x", function(d) {return x(d.start);})
 			.attr("y", function(d) {return y2(d.lane + .5);})
