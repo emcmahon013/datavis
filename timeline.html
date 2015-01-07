@@ -62,7 +62,7 @@
 <script type="text/javascript">
 		var m = [20, 15, 15, 50], //top right bottom left
 			h = 700 - m[1] - m[3],
-			w = 250,
+			w = 500,
 			miniWidth = laneLength * 12 + 50,
 			mainWidth = w - miniWidth - 50;
 
@@ -84,7 +84,7 @@
 			.attr("id", "clip")
 			.append("rect")
 			.attr("height", h)
-			.attr("width", w);
+			.attr("width", mainWidth);
 
 		// var main = chart.append("g")
 		// 			.attr("transform", "translate(" + m[3] + "," + m[0] + ")")
