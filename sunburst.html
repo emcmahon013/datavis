@@ -5,32 +5,18 @@
 <!--     <meta http-equiv="X-UA-Compatible" content="chrome=1"> -->
     <title>burst</title>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/sunburststyles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
-    <style>
-html, body, #wrapper
-{
-width: 100%;
-height: 100%;
-font-size:10p;
-}
-#container
-{
-width: 960px;
-margin: 0 auto;
-}
-    </style>
   <body>
     <div id="skills">
       <div id="skillmap">
         <div class="skills-wrapper">
-          <div class="skills-sunburst">
-              <div class="skills-chart">
+          <div class="skills-sunburst"></div>
+          <div class="skills-chart">
             <div id="skills-chart-breadcrumb"></div>
           </div>
-        </div>
         </div>
       </div>
     </div>
@@ -39,7 +25,7 @@ margin: 0 auto;
     <script type="text/javascript" src="/datavis/assets/sunburst/skills.js"></script>
     <script type="text/javascript">
       // Hack to make this example display correctly in an iframe on bl.ocks.org
-      d3.select(self.frameElement).style("height", "1000px").style("width","1200px");
+      d3.select(self.frameElement).style("height", "700px");
   </script> 
   </body>
 </html>
