@@ -67,15 +67,15 @@
 			mainHeight = h - miniHeight - 50;
 
 		//scales
-		var x = d3.scale.linear()
+		var y1 = d3.scale.linear()
 				.domain([timeBegin, timeEnd])
 				.range([0, w]);
-		var x1 = d3.scale.linear()
+		var y2 = d3.scale.linear()
 				.range([0, w]);
-		var y1 = d3.scale.linear()
+		var x = d3.scale.linear()
 				.domain([0, laneLength])
 				.range([0, mainHeight]);
-		var y2 = d3.scale.linear()
+		var x1 = d3.scale.linear()
 				.domain([0, laneLength])
 				.range([0, miniHeight]);
 
