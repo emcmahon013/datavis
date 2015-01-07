@@ -99,7 +99,7 @@
 
 		var mini = chart.append("g")
 					.attr("transform", "translate(" + m[2] + "," + (m[2]) + ")")
-					.attr("height", h)
+					.attr("height", h + m[0]+m[2])
 					.attr("width", miniWidth)
 					.attr("class", "mini");
 		
@@ -161,7 +161,7 @@
 			.data(items)
 			.enter().append("text")
 			.text(function(d) {return d.id;})
-			.attr("y", function(d) {return x((d.end));})
+			.attr("y", function(d) {return x((d.start+d.end)/2);})
 			.attr("x", function(d) {return y2(d.lane);})
 			.attr("dx", ".5ex");
 
