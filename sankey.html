@@ -199,14 +199,14 @@ var chart = d3.select("body")
 var mini = svg.append("g")
           .attr("transform", "translate(" + m[0] + "," + (m[2]) + ")")
           .attr("height", height - m[0]-m[2])
-          .attr("width", miniWidth)
+          .attr("width", width)
           .attr("class", "mini");
 
 mini.append("g").selectAll("miniItems")
       .data(items)
       .enter().append("rect")
       .attr("class", function(d) {return "miniItem" + d.lane;})
-      .attr("y", function(d) {return y(d.end );})
+      .attr("y", function(d) {return y(d.end)+800;})
       .attr("x", function(d) {return x(d.lane + .5);})
       .attr("height", function(d) {return y(d.end-d.start);})
       .attr("width", 10);
