@@ -25,6 +25,10 @@ svg.append("text")
     .style("text-anchor", "middle")
     .text(function(d) { return d; });
 
+svg.append("text")
+  .attr("transform","translate(20"+cellSize*3")")
+  .text("Missing Data")
+
 var rect = svg.selectAll(".day")
     .data(function(d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
   .enter().append("rect")
