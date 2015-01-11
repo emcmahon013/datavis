@@ -26,7 +26,7 @@ svg.append("text")
     .text(function(d) { return d; });
 
 svg.append("text")
-  .attr("transform","translate(20"+cellSize*3")")
+  .attr("transform","translate(20," + cellSize*3 + ")")
   .text("Missing Data");
 
 var rect = svg.selectAll(".day")
