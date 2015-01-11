@@ -68,7 +68,8 @@ function monthPath(t0) {
       + "H" + (w0 + 1) * cellSize + "Z";
 }
 
-  svg.attr("transform","translate(20," + cellSize*3 + ")")
-  .text("Missing Data");
+  svg.append("text")
+    .attr("transform","translate(20," + cellSize*3 + ")")
+    .text("Missing Data");
 
 d3.select(self.frameElement).style("height", "2910px");
