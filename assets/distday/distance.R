@@ -47,7 +47,8 @@ dist$ln.dist<-log(dist$dist)
 dist$ln.dist[1]<-0
 hist(dist$ln.dist)
 
-dist$date<-as.POSIXct(strptime(dist$date,"%m/%d/%y %H:%M"))
+dist$date<-as.POSIXct(strptime(dist$date,"%Y-%m-%d %H:%M:%S"))
+dist$date<-dist$date-3600*5
 dist$day<-cut(dist$date,"1 day")
 dist.day<-ddply(dist,.(day),summarize,dist=sum(dist))
 dist.day$day<-strftime(strptime(dist.day$day,"%Y-%m-%d %H:%M:%S"),"%Y-%m-%d")
@@ -58,15 +59,17 @@ dist.day$day<-weekdays(as.Date(dist.day$Date))
 dist.day$wkday<-mapply(dist.day$day,FUN=wkday)
 dist.wk<-ddply(dist.day,.(wkday),summarize,count=length(Dist))
 
-dist$clean.dist<-dist$dist
-dec<-dist[order(dist$dist,decreasing=T),]
-dist$clean.dist[6120]<-0.5
-dist$clean.dist[6114]<-0.5
-dist$clean.dist[2309]<-0.5
-dist$clean.dist[3999]<-0.5
-dist$clean.dist[4146]<-0.5
-dist$clean.dist[2450]<-0.5
-dist$clean.dist[2452]<-0.5
+clean<-function(x){
+  if(x>=50){
+    y<-50
+  } else{
+    y<-x
+  }
+  return(y)
+}
+
+
+dist$clean.dist<-mapply(dist$dist,FUN=clean)
 
 #dist$date<-as.POSIXct(strptime(dist$date,"%m/%d/%y %H:%M"))
 dist$hr<-cut(dist$date,"1 hour")
