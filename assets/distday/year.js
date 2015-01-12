@@ -56,24 +56,24 @@ d3.csv("/datavis/assets/distday/distday.csv", function(error, csv) {
     .select("title")
       .text(function(d) { return d + ": " + d3.round(Math.exp(data[d]),1)+" miles"; });
 
-var legend = svg.selectAll(".legend")
-    .data([0].concat(colorScale.quantiles()), function(d) { return d; })
-    .enter().append("g")
-    .attr("class", "legend");
+// var legend = svg.selectAll(".legend")
+//     .data([0].concat(colorScale.quantiles()), function(d) { return d; })
+//     .enter().append("g")
+//     .attr("class", "legend");
 
-legend.append("rect")
-  .attr("x", function(d, i) { return legendElementWidth * i; })
-  .attr("y", height)
-  .attr("width", legendElementWidth)
-  .attr("height", cellSize)
-  .style("fill", function(d, i) { return color[i]; });
+// legend.append("rect")
+//   .attr("x", function(d, i) { return legendElementWidth * i; })
+//   .attr("y", height)
+//   .attr("width", legendElementWidth)
+//   .attr("height", cellSize)
+//   .style("fill", function(d, i) { return color[i]; });
 
-legend.append("text")
-  .attr("class", "mono")
-  .text(function(d) { return "≥ " + Math.round(d); })
-  .attr("x", function(d, i) { return legendElementWidth * i; })
-  .attr("y", height + cellSize);
-});
+// legend.append("text")
+//   .attr("class", "mono")
+//   .text(function(d) { return "≥ " + Math.round(d); })
+//   .attr("x", function(d, i) { return legendElementWidth * i; })
+//   .attr("y", height + cellSize);
+// });
 
 function monthPath(t0) {
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
@@ -86,7 +86,7 @@ function monthPath(t0) {
       + "H" + (w0 + 1) * cellSize + "Z";
 }
 
-
+var legend =svg.SelectAll(".legend");
 
 legend.append("text")
   .text("Note: Empty cells represent missing data.")
