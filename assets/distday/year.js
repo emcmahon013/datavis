@@ -54,7 +54,7 @@ d3.csv("/datavis/assets/distday/distday.csv", function(error, csv) {
   rect.filter(function(d) { return d in data; })
       .attr("class", function(d) { return "day " + color(data[d]); })
     .select("title")
-      .text(function(d) { return d + ": " + d3.round(exp(data[d]),1)+" miles"; });
+      .text(function(d) { return d + ": " + d3.round(Math.exp(data[d]),1)+" miles"; });
 });
 
 function monthPath(t0) {
