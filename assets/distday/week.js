@@ -42,11 +42,11 @@ var margin = { top: 50, right: 0, bottom: 100, left: 30 },
               .data(times)
               .enter().append("text")
                 .text(function(d) { return d; })
-                .attr("x", function(d, i) { return i * gridSize; })
+                .attr("x", function(d, i) { return i * gridSize+1; })
                 .attr("y", 0)
                 .style("text-anchor", "middle")
                 .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-                .attr("class", function(d, i) { return ((i >= 6 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+                .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
           var heatMap = svg.selectAll(".hour")
               .data(data)
