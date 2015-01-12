@@ -1,4 +1,4 @@
-var margin = { top: 50, right: 0, bottom: 100, left: 100 },
+var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           width = 960 - margin.left - margin.right,
           height = 430 - margin.top - margin.bottom,
           gridSize = Math.floor(width / 24),
@@ -32,7 +32,7 @@ var margin = { top: 50, right: 0, bottom: 100, left: 100 },
               .data(days)
               .enter().append("text")
                 .text(function (d) { return d; })
-                .attr("x", 0)
+                .attr("x", margin.left)
                 .attr("y", function (d, i) { return i * gridSize; })
                 .style("text-anchor", "end")
                 .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
