@@ -73,7 +73,7 @@ d3.csv("/datavis/assets/distday/distday.csv", function(error, csv) {
 //   .text(function(d) { return "≥ " + Math.round(d); })
 //   .attr("x", function(d, i) { return legendElementWidth * i; })
 //   .attr("y", height + cellSize);
-// });
+});
 
 function monthPath(t0) {
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
