@@ -12,8 +12,8 @@ var margin = { top: 50, right: 0, bottom: 100, left: 30 },
       d3.csv("/datavis/assets/distday/disthr.csv",
         function(d) {
           return {
-            day: +d.day,
-            hour: +d.hour,
+            day: +d.wkday,
+            hour: +d.hr,
             value: +d.avg
           };
         },
