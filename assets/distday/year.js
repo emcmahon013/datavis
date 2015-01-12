@@ -9,7 +9,7 @@ var day = d3.time.format("%w"),
 
 var color = d3.scale.quantize()
     .domain([0, 25])
-    .range(['#EFEE69','#D4E669','#BADC6A','#A1D26D','#8AC870','#75BD72','#62B274','#50A675','#409A75','#338E74','#288272','#21766E','#1E6968','#1E5D62','#1F525A','#1F4651','#203B47','#1F303D']);
+    .range(d3.linear(['#EFEE69','#D4E669','#BADC6A','#A1D26D','#8AC870','#75BD72','#62B274','#50A675','#409A75','#338E74','#288272','#21766E','#1E6968','#1E5D62','#1F525A','#1F4651','#203B47','#1F303D']));
 
 var svg = d3.select("#year").selectAll("svg")
     .data(d3.range(2013, 2015))
