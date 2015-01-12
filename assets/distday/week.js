@@ -52,7 +52,7 @@ var margin = { top: 50, right: 0, bottom: 100, left: 30 },
               .data(data)
               .enter().append("rect")
               .attr("x", function(d) { return (d.hour+0.5) * gridSize; })
-              .attr("y", function(d) { return (d.day * gridSize-1; })
+              .attr("y", function(d) { return (d.day * gridSize; })
               .attr("rx", 4)
               .attr("ry", 4)
               .attr("class", "hour bordered")
