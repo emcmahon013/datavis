@@ -19,7 +19,7 @@ var margin = { top: 50, right: 0, bottom: 100, left: 30 },
         },
         function(error, data) {
           var colorScale = d3.scale.quantile()
-              .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })-1])
+              .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })-2])
               .range(colors);
 
           var svg = d3.select("#week").append("svg")
@@ -63,7 +63,7 @@ var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           heatMap.transition().duration(1000)
               .style("fill", function(d) { return colorScale(d.value); });
 
-          heatMap.append("title").text(function(d) { return d.value; });
+          heatMap.append("title").text(function(d) { return d3.round(d.value,2); });
               
           var legend = svg.selectAll(".legend")
               .data([0].concat(colorScale.quantiles()), function(d) { return d; })
