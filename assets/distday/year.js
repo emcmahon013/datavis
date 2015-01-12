@@ -88,8 +88,7 @@ function monthPath(t0) {
 
 
 
-  // svg.append("text")
-  //   .attr("transform","translate(20," + cellSize*3 + ")")
-  //   .text("Missing Data");
+legend.append("text")
+  .text("Note: Empty cells represent missing data.")
 
 d3.select(self.frameElement).style("height", "2910px");
