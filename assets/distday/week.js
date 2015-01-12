@@ -51,7 +51,7 @@ var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           var heatMap = svg.selectAll(".hour")
               .data(data)
               .enter().append("rect")
-              .attr("x", function(d) { return (d.hour+0.4) * gridSize; })
+              .attr("x", function(d) { return (d.hour+0.3) * gridSize; })
               .attr("y", function(d) { return d.day * gridSize-30; })
               .attr("rx", 4)
               .attr("ry", 4)
