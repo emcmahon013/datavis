@@ -48,7 +48,7 @@ svg.selectAll(".month")
 d3.csv("/datavis/assets/distday/distday.csv", function(error, csv) {
   var data = d3.nest()
     .key(function(d) { return d.Date; })
-    .rollup(function(d) { return d[0].Dist; })
+    .rollup(function(d) { return d[0].Ln; })
     .map(csv);
 
   rect.filter(function(d) { return d in data; })
