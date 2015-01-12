@@ -31,7 +31,7 @@ var margin = { top: 50, right: 0, bottom: 100, left: 30 },
           var dayLabels = svg.selectAll(".dayLabel")
               .data(days)
               .enter().append("text")
-                .text(function (d) { return d.wkday; })
+                .text(function (d) { return d; })
                 .attr("x", 20)
                 .attr("y", function (d, i) { return i * gridSize; })
                 .style("text-anchor", "end")
