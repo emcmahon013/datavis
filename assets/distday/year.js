@@ -9,7 +9,7 @@ var day = d3.time.format("%w"),
 
 var color = d3.scale.quantize()
     .domain([0, 25])
-    .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
+    .range(d3.range(18).map(function(d) { return "q" + d + "-11"; }));
 
 var svg = d3.select("#year").selectAll("svg")
     .data(d3.range(2013, 2015))
