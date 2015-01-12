@@ -86,9 +86,5 @@ function monthPath(t0) {
       + "H" + (w0 + 1) * cellSize + "Z";
 }
 
-var legend =svg.SelectAll(".legend");
-
-legend.append("text")
-  .text("Note: Empty cells represent missing data.")
 
 d3.select(self.frameElement).style("height", "2910px");
