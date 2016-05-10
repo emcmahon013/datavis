@@ -1,4 +1,4 @@
-.DS_Store
+*.DS_Store
 assets/.DS_Store
 assets/sankey/.DS_Store
 assets/distday/.DS_Store
