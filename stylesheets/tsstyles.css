@@ -1,10 +1,44 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {
-  padding:50px;
+  position:absolute;
+  top: 0;
+  left: 0;
+  font-size: 85px;
+  padding-top:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
+}
+  .logo-true {
+    position:absolute;
+    top:5px;
+    left: 0;
+    margin-left:50px;
+    font-size: 85px;
+/*    text-align: center;*/
+/*    margin-left: 100 px;*/
+  }
+  .logo-signal {
+    position: absolute;
+    top:125px;
+    left:0;
+    margin-left:425px;
+    font-size: 85px;
+  }
+  .signal {
+    position:relative;
+    top: 0;
+    left: 30px;
+    margin-left:50px;
+    width:100%;
+    height:100%;
+  }
+
+view {
+  height:100%;
+  width:100%;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -178,15 +212,21 @@ hr {
 
 footer {
   width:270px;
-  float:left;
-  position:fixed;
+  float:right;
+  position: relative;
   bottom:0px;
+  font-size:30px;
+}
+
+p {
+  float:right;
 }
 
 @media print, screen and (max-width: 960px) {
   
   div.wrapper {
     width:auto;
+    height:auto;
     margin:0;
   }
   
@@ -227,9 +267,9 @@ footer {
     padding:0;
   }
   
-  header ul, header p.view {
+/*  header ul, header p.view {
     position:static;
-  }
+  }*/
   
   pre, code {
     word-wrap:normal;
