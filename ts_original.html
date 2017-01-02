@@ -28,7 +28,7 @@
 
 function fitToContainer(canvas){
   // Make it visually fill the positioned parent
-  canvas.style.width ='110%';
+  canvas.style.width ='150%';
   canvas.style.height='100%';
   // ...then set the internal size to match
   canvas.width  = canvas.offsetWidth;
@@ -105,7 +105,7 @@ var pathTS = new Path({
 });
 
 for (var i = 0; i <= 10; i++) {
-  pathTS.add(new Point(i / 10*canvas.offsetWidth, 1*canvas.offsetHeight));
+  pathTS.add(new Point(i / 10, 1) * view.size);
 }
 
 var underline = new Path({
@@ -192,15 +192,15 @@ function onFrame(event) {
         path3.remove();
         path4.remove();
         path5.remove();
-        underline.remove();
-        view.viewSize = new Size(canvas.offsetWidth,canvas.offsetHeight);
+        // underline.remove();
+        // view.viewSize = new Size(canvas.offsetWidth,canvas.offsetHeight);
     // } 
   // view.viewSize = new Size(300,500);
   for (var i = 0; i <= 10; i++) {
     var segmentTS = pathTS.segments[i];
     // A cylic value between -1 and 1
     var TS = Math.sin((i*.5-1))*(i*.5-1);
-    segmentTS.point.y = TS * height/1.5  + 110;
+    segmentTS.point.y = TS * height/2  + 95;
     segmentTS.smooth();
   }
         

@@ -22,7 +22,6 @@
     <script src="http://paperjs.org/assets/js/paper.js"></script>
     <script type = "text/paperscript" canvas="signal">
 
-
     var canvas = document.querySelector('canvas');
     fitToContainer(canvas);
 
@@ -35,6 +34,8 @@ function fitToContainer(canvas){
   canvas.height = canvas.offsetHeight;
   // cavnas.width = 500px;
 }
+
+    view.viewSize = new Size(canvas.offsetWidth,canvas.offsetHeight);
     // The amount of segment points we want to create:
 var amount = 6;
 // The maximum height of the wave:
@@ -88,39 +89,15 @@ for (var i = 0; i <= amount; i++) {
 
 var path5 = new Path({
   // 80% black:
-  strokeColor: [0.8],
-  // strokeWidth: 30,
-  strokeCap: 'square'
-});
-
-for (var i = 0; i <= amount; i++) {
-  path5.add(new Point(i / amount, 1) * view.size);
-}
-
-var pathTS = new Path({
-//  100% black:
-  strokeColor: [0],
+  strokeColor: [0.6],
   // strokeWidth: 30,
   strokeCap: 'square'
 });
 
 for (var i = 0; i <= 10; i++) {
-  pathTS.add(new Point(i / 10*canvas.offsetWidth, 1*canvas.offsetHeight));
+  path5.add(new Point(i / 10, 1) * view.size);
 }
 
-var underline = new Path({
-//  100% black:
-  strokeColor: [0],
-  // strokeWidth: 30,
-  strokeCap: 'square'
-});
-
-for (var i = 0; i <= 10; i++) {
-  underline.add(new Point(i / 10, 1) * view.size);
-}
-
-// Select the path, so we can see how it is constructed:
-// pathTS.selected = true;
 
 function onFrame(event) {
   // Loop through the segments of the path:
@@ -134,7 +111,7 @@ function onFrame(event) {
     var sinus = Math.sin(event.time * 3 + i);
     
     // Change the y position of the segment point:
-    segment.point.y = sinus * height * (event.time % 2) + 50;
+    segment.point.y = sinus * height * (event.time % 2) + 100;
     segment.smooth();
   }
   // view.viewSize = new Size(700,400);
@@ -146,7 +123,7 @@ function onFrame(event) {
     var cosinus = Math.cos(event.time * 3 + i);
     
     // Change the y position of the segment point:
-    segment2.point.y = cosinus * height * ((event.time-1) % 2)  + 50;
+    segment2.point.y = cosinus * height * ((event.time-1) % 2)  + 100;
     segment2.smooth();
   }
   
@@ -156,7 +133,7 @@ function onFrame(event) {
     // A cylic value between -1 and 1
     var fourier = Math.sin(event.time * 5 + amount - i) + Math.cos(event.time * 5 + amount - i);
     // Change the y position of the segment point:
-    segment3.point.y = fourier * height * ((event.time-1) % 2)  + 50;
+    segment3.point.y = fourier * height * ((event.time-1) % 2)  + 100;
     segment3.smooth();
   }
   
@@ -167,22 +144,20 @@ function onFrame(event) {
     var fourier1 = Math.sin(event.time * 5 + amount - i) + Math.cos(event.time * 5 + amount - i);
     
     // Change the y position of the segment point:
-    segment4.point.y = fourier1 * height * ((event.time-1) % 2)  + 50;
+    segment4.point.y = fourier1 * height * ((event.time-1) % 2)  + 100;
     segment4.smooth();
   }
   
-  for (var i = 0; i <= amount; i++) {
+  for (var i = 0; i <= 10; i++) {
     var segment5 = path5.segments[i];
 
     // A cylic value between -1 and 1
     var fourier2 = Math.cos(1/event.time * 5 + i) + Math.sin(event.time * 5 - amount + i);
     
     // Change the y position of the segment point:
-    segment5.point.y = fourier2 * height * ((event.time-1) % 2)  + 50;
+    segment5.point.y = fourier2 * height * ((event.time-1) % 2)  + 100;
     segment5.smooth();
   }
-  // console.log(view.size);
-  // console.log(canvas.offsetHeight);
   
     }
 
@@ -191,13 +166,9 @@ function onFrame(event) {
         path2.remove();
         path3.remove();
         path4.remove();
-        path5.remove();
-        underline.remove();
-        view.viewSize = new Size(canvas.offsetWidth,canvas.offsetHeight);
-    // } 
-  // view.viewSize = new Size(300,500);
+
   for (var i = 0; i <= 10; i++) {
-    var segmentTS = pathTS.segments[i];
+    var segmentTS = path5.segments[i];
     // A cylic value between -1 and 1
     var TS = Math.sin((i*.5-1))*(i*.5-1);
     segmentTS.point.y = TS * height/1.5  + 110;
@@ -206,30 +177,8 @@ function onFrame(event) {
         
     }
 }
-// function onResize(event) {
-//   // Whenever the window is resized, recenter the path:
-//   path.position = view.center;
-// }
 
     </script>
-<!--     <div class="wrapper"> -->
-<!--       <header>
-        <h1>Data Bites</h1> 
-        <h3>Consumable Visualizations</h3>
-        <p class "view">
-      Not everyone loves stats, but most of us like a good story or at least a good picture.  Here are a few of mine.    
-      </p>
-      </header> -->
-      <!-- <section>
-<a id="datavis" class="anchor" href="#datavis" aria-hidden="true"><span class="octicon octicon-link"></span></a>data vis+.
-       <a id="density" href="/density_visualize/density.html" aria-hidden="true" ><img src="/density_visualize/assets/density.png" alt="density"><span class="octicon octicon-link"></span></a>
-        <a id="tempvis" href="/weradiateny/tempvis.html" aria-hidden="true" ><img src="/weradiateny/assets/tempvis.png" alt="tempvis"><span class="octicon octicon-link"></span></a>
-      </p>
-  <a id="resvis" class="anchor" href="#resvis" aria-hidden="true"><span class="octicon octicon-link"></span></a>(resu)me in vis.<br>
-        <a id="sankey" href="/datavis/sankey.html" aria-hidden="true" ><img src="/datavis/assets/sankey/sankey.png" alt="sankey"><span class="octicon octicon-link"></span></a>
-         <a id="calendar" href="/datavis/calendar.html" aria-hidden="true" ><img src="/datavis/assets/distday/calendar.png" alt="calendar"><span class="octicon octicon-link"></span></a>
-        <a id="burst" href="/datavis/sunburst.html" aria-hidden="true" ><img src="/datavis/assets/sunburst/sunburst.png" alt="burst"><span class="octicon octicon-link"></span></a>
-      </section> -->
       <footer>
         <p> <a href="mailto:eric@truesignalpartners.com">email us.</a></p>
       </footer>

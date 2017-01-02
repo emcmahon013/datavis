@@ -2,44 +2,52 @@
 
 body {
   position:absolute;
+/*  height:60%;*/
+/*  height:200px;*/
   top: 0;
   left: 0;
   font-size: 85px;
-  padding-top:50px;
+  padding-top:25px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
 }
   .logo-true {
     position:absolute;
-    top:5px;
+    top:5%;
+/*    top:5px;*/
     left: 0;
-    margin-left:50px;
+    margin-left:5%;
+/*    margin-left:50px;*/
     font-size: 85px;
+/*    font-size:8vw;*/
 /*    text-align: center;*/
 /*    margin-left: 100 px;*/
   }
   .logo-signal {
     position: absolute;
-    top:125px;
+    top:35%;
+/*    top:125px;*/
     left:0;
-    margin-left:425px;
+    margin-left:65%;
+/*    margin-left:425px;*/
     font-size: 85px;
+/*    font-size:8vw;*/
   }
   .signal {
     position:relative;
     top: 0;
     left: 30px;
-    margin-left:50px;
-    width:100%;
-    height:100%;
+    margin-left:2%;
+/*    width:100%;
+    height:100%;*/
   }
 
-view {
+/*view {
   height:100%;
   width:100%;
 
-}
+}*/
 
 h1, h2, h3, h4, h5, h6 {
   color:#222;
@@ -212,8 +220,9 @@ hr {
 
 footer {
   width:270px;
-  float:right;
-  position: relative;
+  right:0px;
+  padding-right:10%;
+  position: fixed;
   bottom:0px;
   font-size:30px;
 }
