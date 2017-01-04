@@ -5,37 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>true-signal</title>
 
-    <link rel="stylesheet" href="stylesheets/tsstyles.css">
+    <link rel="stylesheet" href="stylesheets/tsstyless.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-<!--   <body> -->
+  <body>
     <div class = "signal">
       <canvas  id = "signal"></canvas>
-    <div class = "logo-true"> <body>true</body> </div>
-    <div class = "logo-signal"> signal </div>
     </div>
-<!--   </body> -->
+<!--     <div class = "logo-true"> true </div> -->
+<!--     <div class = "logo-signal"> signal </div> -->
+  </body>
 
     <script src="http://paperjs.org/assets/js/paper.js"></script>
     <script type = "text/paperscript" canvas="signal">
 
     var canvas = document.querySelector('canvas');
-    fitToContainer(canvas);
+    var div = document.querySelector('div');
+    fitToContainer(canvas,div);
 
-function fitToContainer(canvas){
+  function fitToContainer(canvas,div){
   // Make it visually fill the positioned parent
-  canvas.style.width ='110%';
+  canvas.style.width ='100%';
   canvas.style.height='100%';
   // ...then set the internal size to match
-  canvas.width  = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-  // cavnas.width = 500px;
+  canvas.width  = div.offsetWidth;
+  canvas.height = div.offsetHeight;
 }
 
-    view.viewSize = new Size(canvas.offsetWidth,canvas.offsetHeight);
+// function fitToContainer(canvas){
+//   // Make it visually fill the positioned parent
+//   canvas.style.width ='100%';
+//   canvas.style.height='100%';
+//   // ...then set the internal size to match
+//   canvas.width  = canvas.offsetWidth;
+//   canvas.height = canvas.offsetHeight;
+//   // cavnas.width = 500px;
+// }
+
+view.viewSize = new Size(canvas.offsetWidth,canvas.offsetHeight);
     // The amount of segment points we want to create:
 var amount = 6;
 // The maximum height of the wave:
@@ -98,6 +108,24 @@ for (var i = 0; i <= 10; i++) {
   path5.add(new Point(i / 10, 1) * view.size);
 }
 
+var text = new PointText({
+    point: [.05*canvas.width, .17*canvas.height],
+    content: 'true',
+    fillColor: '#777',
+    fontFamily: 'Lato',
+    fontWeight: 300,
+    fontSize: .05*canvas.width
+});
+
+var text = new PointText({
+    point: [.3*canvas.width, .47*canvas.height],
+    content: 'signal',
+    fillColor: '#777',
+    fontFamily: 'Lato',
+    fontWeight: 300,
+    fontSize: .05*canvas.width
+});
+
 
 function onFrame(event) {
   // Loop through the segments of the path:
@@ -111,7 +139,7 @@ function onFrame(event) {
     var sinus = Math.sin(event.time * 3 + i);
     
     // Change the y position of the segment point:
-    segment.point.y = sinus * height * (event.time % 2) + 100;
+    segment.point.y = sinus * height * (event.time % 2) + canvas.offsetHeight/2;
     segment.smooth();
   }
   // view.viewSize = new Size(700,400);
@@ -123,7 +151,7 @@ function onFrame(event) {
     var cosinus = Math.cos(event.time * 3 + i);
     
     // Change the y position of the segment point:
-    segment2.point.y = cosinus * height * ((event.time-1) % 2)  + 100;
+    segment2.point.y = cosinus * height * ((event.time-1) % 2)  + canvas.offsetHeight/2;
     segment2.smooth();
   }
   
@@ -144,7 +172,7 @@ function onFrame(event) {
     var fourier1 = Math.sin(event.time * 5 + amount - i) + Math.cos(event.time * 5 + amount - i);
     
     // Change the y position of the segment point:
-    segment4.point.y = fourier1 * height * ((event.time-1) % 2)  + 100;
+    segment4.point.y = fourier1 * height * ((event.time-1) % 2)  + canvas.offsetHeight/2;
     segment4.smooth();
   }
   
@@ -155,7 +183,7 @@ function onFrame(event) {
     var fourier2 = Math.cos(1/event.time * 5 + i) + Math.sin(event.time * 5 - amount + i);
     
     // Change the y position of the segment point:
-    segment5.point.y = fourier2 * height * ((event.time-1) % 2)  + 100;
+    segment5.point.y = fourier2 * height * ((event.time-1) % 2)  + canvas.offsetHeight/2;
     segment5.smooth();
   }
   
@@ -171,7 +199,7 @@ function onFrame(event) {
     var segmentTS = path5.segments[i];
     // A cylic value between -1 and 1
     var TS = Math.sin((i*.5-1))*(i*.5-1);
-    segmentTS.point.y = TS * height/1.5  + 110;
+    segmentTS.point.y = TS * height *1.25  + canvas.offsetHeight/3;
     segmentTS.smooth();
   }
         
@@ -180,7 +208,7 @@ function onFrame(event) {
 
     </script>
       <footer>
-        <p> <a href="mailto:eric@truesignalpartners.com">email us.</a></p>
+        <p> <a href="mailto:info@truesignalpartners.com">email us.</a></p>
       </footer>
     </div>
               <script type="text/javascript">

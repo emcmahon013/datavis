@@ -1,40 +1,59 @@
 <!doctype html>
 <html>
-  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>true-signal</title>
 
-    <link rel="stylesheet" href="stylesheets/tsstyles.css">
+    <link rel="stylesheet" href="stylesheets/tsstyless.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  </head>
-<!--   <body> -->
+    <body>
     <div class = "signal">
       <canvas  id = "signal"></canvas>
-    <div class = "logo-true"> <body>true</body> </div>
-    <div class = "logo-signal"> signal </div>
     </div>
-<!--   </body> -->
+    </body>
 
     <script src="http://paperjs.org/assets/js/paper.js"></script>
     <script type = "text/paperscript" canvas="signal">
 
 
-    var canvas = document.querySelector('canvas');
-    fitToContainer(canvas);
+    var canvas = document.querySelector('canvas#signal');
+    var div = document.querySelector('div');
+    view.viewSize = new Size(div.offsetWidth*.4,div.offsetHeight);
+    fitToContainer(canvas,div);
+    
 
-function fitToContainer(canvas){
+function fitToContainer(canvas,div){
   // Make it visually fill the positioned parent
-  canvas.style.width ='150%';
+  canvas.style.width ='100%';
   canvas.style.height='100%';
   // ...then set the internal size to match
-  canvas.width  = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-  // cavnas.width = 500px;
+  canvas.width  = div.offsetWidth/1.2;
+  canvas.height = div.offsetHeight;
 }
+
+// view.viewSize = new Size(canvas.offsetWidth*.65,canvas.offsetHeight*.65);
+
+var text = new PointText({
+    point: [.1*canvas.width, .25*canvas.height],
+    content: 'true',
+    fillColor: '#777',
+    fontFamily: 'Lato',
+    fontWeight: 200,
+    fontSize: .1*canvas.width
+});
+
+var text = new PointText({
+    point: [.55*canvas.width, .65*canvas.height],
+    content: 'signal',
+    fillColor: '#777',
+    fontFamily: 'Lato',
+    fontWeight: 200,
+    fontSize: .1*canvas.width
+});
+
     // The amount of segment points we want to create:
 var amount = 6;
 // The maximum height of the wave:
